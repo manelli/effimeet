@@ -1,0 +1,40 @@
+<header class="px-4 sm:px-6 lg:px-8">
+  <div class="flex items-center justify-between border-b border-zinc-100 py-3">
+    <div class="flex items-center gap-4">
+      <a href="/dashboard">
+        <svg viewBox="0 0 713.000000 715.000000" class="h-12" aria-hidden="true">
+          <g transform="translate(0.000000,715.000000) scale(0.100000,-0.100000)" fill="#003153">
+            <path d="M1540 7099 c-203 -24 -372 -74 -565 -170 -175 -86 -299 -174 -435 -309 -257 -254 -412 -547 -487 -920 -16 -79 -17 -288 -20 -2873 l-3 -2787 2722 0 c1756 0 2755 4 2813 10 209 24 377 71 560 160 538 259 893 766 955 1360 6 60 10 1104 10 2818 l0 2722 -2737 -1 c-1506 -1 -2772 -5 -2813 -10z m3611 -1149 c30 -6 77 -22 105 -35 61 -30 157 -123 186 -180 50 -96 48 -4 48 -2192 0 -1128 -3 -2053 -7 -2055 -5 -2 -19 -27 -32 -56 -31 -66 -128 -164 -195 -197 -28 -14 -75 -29 -105 -35 -74 -14 -3118 -14 -3192 0 -30 6 -77 21 -105 35 -60 29 -158 123 -186 180 -50 96 -48 6 -48 2160 0 2154 -2 2064 48 2160 48 95 179 194 282 214 65 13 3134 14 3201 1z"/>
+            <path d="M2015 5701 c-67 -17 -117 -65 -135 -130 -7 -26 -9 -676 -8 -2017 l3 -1979 24 -41 c13 -24 41 -52 65 -65 l41 -24 1550 0 1550 0 41 24 c24 13 52 41 65 65 l24 41 3 1979 c1 1341 -1 1991 -8 2017 -13 46 -51 93 -94 117 -29 16 -137 17 -1561 19 -841 0 -1543 -2 -1560 -6z m1415 -1121 l0 -180 -580 0 -580 0 0 180 0 180 580 0 580 0 0 -180z m1360 -655 l0 -175 -1260 0 -1260 0 0 175 0 175 1260 0 1260 0 0 -175z m0 -700 l0 -175 -1260 0 -1260 0 0 175 0 175 1260 0 1260 0 0 -175z m0 -755 l0 -180 -1260 0 -1260 0 0 180 0 180 1260 0 1260 0 0 -180z"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a
+        href={~p"/templates"}
+        class="text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+      >
+        Templates
+      </a>
+      <a
+        href={~p"/meetings"}
+        class="text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+      >
+        Meetings
+      </a>
+      <a
+        href={~p"/efficiency"}
+        class="text-[0.8125rem] font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+      >
+      Efficiency
+      </a>
+    </div>
+  </div>
+</header>
+<main class="px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-2xl">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>

@@ -1,0 +1,46 @@
+<.header>
+  Listing Meetings
+  <:actions>
+    <.link patch={~p"/meetings/new"}>
+      <.button>New Meeting</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="meetings"
+  rows={@streams.meetings}
+  row_click={fn {_id, meeting} -> JS.navigate(~p"/meetings/#{meeting}") end}
+>
+  <:col :let={{_id, meeting}} label="Content"><%= meeting.content %></:col>
+  <:action :let={{_id, meeting}}>
+    <div class="sr-only">
+      <.link navigate={~p"/meetings/#{meeting}"}>Show</.link>
+    </div>
+    <.link patch={~p"/meetings/#{meeting}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, meeting}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: meeting.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="meeting-modal"
+  show
+  on_cancel={JS.navigate(~p"/meetings")}
+>
+  <.live_component
+    module={EffiMeetWeb.MeetingLive.FormComponent}
+    id={@meeting.id || :new}
+    title={@page_title}
+    action={@live_action}
+    meeting={@meeting}
+    patch={~p"/meetings"}
+  />
+</.modal>
